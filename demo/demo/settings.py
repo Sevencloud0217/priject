@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # 项目的根目录，方便开发人员使用
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# print (os.path.join(BASE_DIR,'tempaltes'))
 # print(BASE_DIR)
 
 
@@ -62,8 +63,12 @@ ROOT_URLCONF = 'demo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 指向django的模板引擎 现在用的是django模板引擎   jinja2
+        # 定义一个目录列表，寻找模板的位置
+        'DIRS': [os.path.join(BASE_DIR,'tempaltes')],
+        # 默认 True  默认会在app中寻找模板（templates) 当APP_DIRS 为True的时候DIRS 后面可以为空
         'APP_DIRS': True,
+        # 针对后端的一些设置
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -134,3 +139,6 @@ USE_TZ = True
 
 # 静态文件的配置
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)

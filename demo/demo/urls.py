@@ -19,11 +19,16 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("index/", views.about),
     path('index/', views.index),
     path('about/', views.about),
     re_path(r'^$', views.index),
     re_path(r'urltest/(\d)', views.urltest),
     re_path(r'urltestnew/(?P<year>\d{4})/(?P<city>\w+)', views.urltestnew),
+    path("gethtml/",views.gethtml),
+    path("indextmp/",views.indextmp),
+    path("abc/",views.abc),
+    re_path("tpltest/(\d+)",views.tpltest),
+    path("statictest/",views.statictest),
+    path("staticdemo/",views.staticdemo),
 
 ]
